@@ -18,11 +18,11 @@ resource "aws_security_group" "sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   tags = {
     Name = "allow_tls"
   }
-}
-
-data "aws_vpc" "selected" {
-  default = true
 }
